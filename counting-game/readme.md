@@ -45,8 +45,7 @@ Alle Nutzer die in dieser Liste stehen werden vom Widget ignoriert. Die Namen si
 `Standart: Aktiviert`
 
 Wenn aktiviert wird wenn eine Person die falsche oder eine doppelte Zahl sendet wird der Name dieser Person angezeigt.
-![chrome_xn4lFvM0zQ](https://user-images.githubusercontent.com/31692271/231838719-1a8b7df6-108d-4c77-8264-beaa631bac99.png)
-![chrome_ypjFSErDfJ](https://user-images.githubusercontent.com/31692271/231838800-16ab8d3f-2cf7-479c-b5ac-e59db213d3af.png)
+| ![chrome_xn4lFvM0zQ](https://user-images.githubusercontent.com/31692271/231838719-1a8b7df6-108d-4c77-8264-beaa631bac99.png) | ![chrome_ypjFSErDfJ](https://user-images.githubusercontent.com/31692271/231838800-16ab8d3f-2cf7-479c-b5ac-e59db213d3af.png) |
 
 > Reset Highscore
 
