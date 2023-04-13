@@ -1,0 +1,27 @@
+{
+	"rulesPosition": {
+		"type": "dropdown",
+		"label": "Rules position",
+		"value": "left",
+		"options": {
+			"left": "Left",
+			"right": "Right",
+			"none": "Hidden"
+		}
+	},
+	"excludeUser": {
+		"type": "string",
+		"label": "Banned Users (comma separated)",
+		"value": "Streamelements"
+	},
+	"reveal": {
+		"type": "checkbox",
+		"label": "Reveal chatter who broke the streak",
+		"value": true
+	},
+	"resetButton": {
+		"type": "button",
+		"label": "Reset Highscore",
+		"value": "reset"
+	}
+}
