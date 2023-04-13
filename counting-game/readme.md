@@ -32,6 +32,7 @@ data.json    -> DATA
 Es gibt folgende  Auswahloptionen: Left, Right, Hidden.
 
 Die Optionen "Left" und "Right" geben die Position an. Mit "Hidden" kannst du die Regeln komplett verstecken.
+![chrome_3qi64fCEYg](https://user-images.githubusercontent.com/31692271/231838666-cdd01058-45f5-4546-9409-6ae74b93347f.png)
 
 > Banned users (comma seperated)
 
@@ -44,6 +45,8 @@ Alle Nutzer die in dieser Liste stehen werden vom Widget ignoriert. Die Namen si
 `Standart: Aktiviert`
 
 Wenn aktiviert wird wenn eine Person die falsche oder eine doppelte Zahl sendet wird der Name dieser Person angezeigt.
+![chrome_xn4lFvM0zQ](https://user-images.githubusercontent.com/31692271/231838719-1a8b7df6-108d-4c77-8264-beaa631bac99.png)
+![chrome_ypjFSErDfJ](https://user-images.githubusercontent.com/31692271/231838800-16ab8d3f-2cf7-479c-b5ac-e59db213d3af.png)
 
 > Reset Highscore
 
