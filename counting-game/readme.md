@@ -1,21 +1,28 @@
 # Counting Game - For StreamElements
 Version: 1.2 - 13.04.2023 18:58
 
+- [Vorschau](#vorschau)
+- [Impotieren des Widget](#impotieren-des-widget)
+  - [Neues Overlay erstellen](#neues-overlay-erstellen)
+  - [Neues Custom Widget erstellen](#neues-custom-widget-erstellen)
+- [Fields](#fields)
+
 ## Vorschau
 
 ![Screenshot 2023-04-13 20-20-10](https://user-images.githubusercontent.com/31692271/231851970-2ddf8c65-93cc-4390-8f5a-af9f7456cb2a.png)
-
 *Aktuellen Highscore schlagen*
+
+***
 
 ## Impotieren des Widget
 
-**Neues Overlay erstellen**
+### Neues Overlay erstellen
 
 1. Öffne <https://streamelements.com/dashboard/overlays>.
 2. Erstelle ein neues Overlay.
 3. Wähle 1080p aus.
 
-**Neues Custom Widget erstellen**
+### Neues Custom Widget erstellen
 
 4. Erstelle ein neues **Custom Widget**.
 5. Ändere die Größe auf `1920x1080px`.
