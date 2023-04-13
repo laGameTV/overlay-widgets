@@ -1,6 +1,29 @@
 # Giveaway Widget - For StreamElements
 Version: 1.0 - 13.04.2023 17:52
 
+## Impotieren des Widget
+
+**Neues Overlay erstellen**
+
+1. Öffne <https://streamelements.com/dashboard/overlays>.
+2. Erstelle ein neues Overlay.
+3. Wähle 1080p aus.
+
+**Neues Custom Widget erstellen**
+
+4. Erstelle ein neues **Custom Widget**.
+5. Ändere die Größe auf `1920x1080px`.
+6. Öffne den Overlay Editor.
+7. Kopiere die einzelnen Inhalte aus `/code` in die jeweiligen Kategorien.
+```
+.html        -> HTML
+.css         -> CSS
+.js          -> JS
+fields.json  -> FIELDS
+data.json    -> DATA
+```
+***
+
 ## Fields
 > jebaited.net Token
 
