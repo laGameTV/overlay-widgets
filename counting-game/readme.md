@@ -1,6 +1,12 @@
 # Counting Game - For StreamElements
 Version: 1.2 - 13.04.2023 18:58
 
+## Vorschau
+
+*[image]*
+
+***
+
 ## Impotieren des Widget
 
 **Neues Overlay erstellen**
@@ -32,6 +38,7 @@ data.json    -> DATA
 Es gibt folgende  Auswahloptionen: Left, Right, Hidden.
 
 Die Optionen "Left" und "Right" geben die Position an. Mit "Hidden" kannst du die Regeln komplett verstecken.
+
 ![chrome_3qi64fCEYg](https://user-images.githubusercontent.com/31692271/231838666-cdd01058-45f5-4546-9409-6ae74b93347f.png)
 
 > Banned users (comma seperated)
@@ -45,6 +52,7 @@ Alle Nutzer die in dieser Liste stehen werden vom Widget ignoriert. Die Namen si
 `Standart: Aktiviert`
 
 Wenn aktiviert wird wenn eine Person die falsche oder eine doppelte Zahl sendet wird der Name dieser Person angezeigt.
+
 ![reveal-chatter](https://user-images.githubusercontent.com/31692271/231840058-16067789-fa23-4c79-a43e-7b4b9cf29f92.png)
 
 > Reset Highscore

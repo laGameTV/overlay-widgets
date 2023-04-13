@@ -1,6 +1,12 @@
 # Giveaway Widget - For StreamElements
 Version: 1.0 - 13.04.2023 17:52
 
+## Vorschau
+
+*[image]*
+
+***
+
 ## Impotieren des Widget
 
 **Neues Overlay erstellen**

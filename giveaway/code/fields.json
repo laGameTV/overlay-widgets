@@ -1,0 +1,57 @@
+{
+	"jebaited": {
+		"type": "text",
+		"label": "jebaited.net Token",
+		"value": ""
+	},
+	"botLanguage": {
+		"type": "dropdown",
+		"label": "Bot language",
+		"value": "en",
+		"options": {
+			"en": "English",
+			"de": "German"
+		}
+	},
+	"joinCommand": {
+		"type": "text",
+		"label": "Join command (Default: !join)",
+		"value": "!join"
+	},
+	"accentColor": {
+		"type": "colorpicker",
+		"label": "Accent color",
+		"value": "#9147ff"
+	},
+	"fontColor": {
+		"type": "colorpicker",
+		"label": "Font color",
+		"value": "#ffffff"
+	},
+	"dingSound": {
+		"type": "sound-input",
+		"label": "Wheel ding - Sound",
+		"value": "https://github.com/laGameTV/overlay-widgets/blob/main/giveaway/src/ding.mp3?raw=true"
+	},
+	"dingVolume": {
+		"type": "slider",
+		"label": "Wheel ding - Sound volume",
+		"value": 1,
+		"min": 0,
+		"max": 1,
+		"step": 0.1
+	},
+	"celebrationSound": {
+		"type": "sound-input",
+		"label": "Celebration - Sound",
+		"value": "https://github.com/laGameTV/overlay-widgets/blob/main/giveaway/src/celebration.mp3?raw=true"
+	},
+	"celebrationVolume": {
+		"type": "slider",
+		"label": "Celebration - Sound volume",
+		"value": 1,
+		"min": 0,
+		"max": 1,
+		"step": 0.1
+	}
+}
