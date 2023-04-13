@@ -3,9 +3,9 @@ Version: 1.2 - 13.04.2023 18:58
 
 ## Vorschau
 
-*[image]*
+![Screenshot 2023-04-13 20-20-10](https://user-images.githubusercontent.com/31692271/231851970-2ddf8c65-93cc-4390-8f5a-af9f7456cb2a.png)
 
-***
+*Aktuellen Highscore schlagen*
 
 ## Impotieren des Widget
 
