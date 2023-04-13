@@ -1,21 +1,28 @@
 # Heartlock Widget - For StreamElements
 Version: 1.1 - 13.04.2023 20:25
 
+- [Vorschau](#vorschau)
+- [Impotieren des Widget](#impotieren-des-widget)
+  - [Neues Overlay erstellen](#neues-overlay-erstellen)
+  - [Neues Custom Widget erstellen](#neues-custom-widget-erstellen)
+- [Fields](#fields)
+
 ## Vorschau
 
-*[image]*
+![2023-04-13 20-52-17](https://user-images.githubusercontent.com/31692271/231859746-bc687e60-0ffa-4258-9180-993ec05e1034.gif)
+*Heartlock Beispiel*
 
 ***
 
 ## Impotieren des Widget
 
-**Neues Overlay erstellen**
+### Neues Overlay erstellen
 
 1. Öffne <https://streamelements.com/dashboard/overlays>.
 2. Erstelle ein neues Overlay.
 3. Wähle 1080p aus.
 
-**Neues Custom Widget erstellen**
+### Neues Custom Widget erstellen
 
 4. Erstelle ein neues **Custom Widget**.
 5. Ändere die Größe auf `1920x1080px`.
