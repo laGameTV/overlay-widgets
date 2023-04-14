@@ -6,6 +6,7 @@ Version: 1.2 - 13.04.2023 18:58
   - [Neues Overlay erstellen](#neues-overlay-erstellen)
   - [Neues Custom Widget erstellen](#neues-custom-widget-erstellen)
 - [Fields](#fields)
+- [To-Do](#to-do)
 
 ## Vorschau
 
@@ -65,3 +66,6 @@ Wenn aktiviert wird wenn eine Person die falsche oder eine doppelte Zahl sendet 
 > Reset Highscore
 
 Setzt wenn man es anklickt den Highscore auf 0 zurück.
+
+## To-Do
+- [ ] Fields Option für Background Color
