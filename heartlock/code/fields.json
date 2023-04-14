@@ -1,7 +1,8 @@
 {
 	"image": {
 		"type": "image-input",
-		"label": "Center Image (at least 96x96px recommended)"
+		"label": "Center Image (at least 96x96px recommended)",
+		"value": "https://github.com/laGameTV/overlay-widgets/blob/main/heartlock/src/heart.png?raw=true"
 	},
 	"color": {
 		"type": "colorpicker",

@@ -5,7 +5,7 @@ var emotes;
 window.addEventListener("onWidgetLoad", function (obj) {
 	console.clear();
 	fieldData = obj.detail.fieldData;
-	image = fieldData.image || "https://imgur.com/j0CU7pv.png";
+	image = fieldData.image || "https://github.com/laGameTV/overlay-widgets/blob/main/heartlock/src/heart.png?raw=true";
 	color = fieldData.color || "#9147ff";
 	emotes = fieldData.emotes
 		.toLowerCase()
