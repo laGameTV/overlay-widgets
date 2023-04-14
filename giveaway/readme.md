@@ -96,5 +96,5 @@ Font color ändert die Farbe der Texte im Widget.
 
 ## To-Do
 - [ ] Gewinnspiel reroll
-  - Timer in Fields bevor Giveaway verschwindet Oder 0 um zu lassen bevor verschwindet. Solange noch sichtbar kann rerollt werden.
+  - Timer in Fields bevor Giveaway Widget verschwindet oder 0 um manuell zu verstecken. Solange noch sichtbar kann rerollt werden.
 - [ ] Zeit basierte gewinnspiele manuell stoppen
