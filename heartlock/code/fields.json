@@ -1,13 +1,17 @@
 {
 	"image": {
 		"type": "image-input",
-		"label": "Center Image (at least 96x96px recommended)",
-		"value": "https://github.com/laGameTV/overlay-widgets/blob/main/heartlock/src/heart.png?raw=true"
+		"label": "Center Image (at least 96x96px recommended)"
 	},
 	"color": {
 		"type": "colorpicker",
 		"label": "Color of bar",
 		"value": "#9147ff80"
+	},
+	"backgroundColor": {
+		"type": "colorpicker",
+		"label": "Background color",
+		"value": "#0b0b0b80"
 	},
 	"fontColor": {
 		"type": "colorpicker",

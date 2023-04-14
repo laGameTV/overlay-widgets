@@ -39,6 +39,12 @@ data.json    -> DATA
 ***
 
 ## Fields
+> Background color
+
+`Standart: #0b0b0b80`
+
+Die Farbe des Hintergrunds.
+
 > Center Image (at least 96x96px recommended)
 
 `Standart: heart.png`
@@ -64,4 +70,4 @@ Farbe des Text in dem Widget.
 Alle Emotes oder Phrasen die im Text gewertet werden sollen. Die Emotes sind mit einem Komma (,) getrennt.
 
 ## To-Do
-- [ ] Fields Option für Background Color
+- [x] Fields Option für Background Color

@@ -11,7 +11,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #0b0b0b80;
+  background-color: {{backgroundColor}};
   display: flex;
   align-items: center;
   justify-content: center;

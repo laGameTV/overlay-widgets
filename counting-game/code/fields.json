@@ -1,4 +1,9 @@
 {
+	"backgroundColor": {
+		"type": "colorpicker",
+		"label": "Background color",
+		"value": "#0b0b0b80"
+	},
 	"rulesPosition": {
 		"type": "dropdown",
 		"label": "Rules position",

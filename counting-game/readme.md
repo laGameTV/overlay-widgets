@@ -39,6 +39,12 @@ data.json    -> DATA
 ***
 
 ## Fields
+> Background color
+
+`Standart: #0b0b0b80`
+
+Die Farbe des Hintergrunds.
+
 > Rules position
 
 `Standart: Left`
@@ -68,4 +74,4 @@ Wenn aktiviert wird wenn eine Person die falsche oder eine doppelte Zahl sendet 
 Setzt wenn man es anklickt den Highscore auf 0 zurück.
 
 ## To-Do
-- [ ] Fields Option für Background Color
+- [x] Fields Option für Background Color
