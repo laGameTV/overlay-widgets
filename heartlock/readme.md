@@ -6,6 +6,7 @@ Version: 1.1 - 13.04.2023 20:25
   - [Neues Overlay erstellen](#neues-overlay-erstellen)
   - [Neues Custom Widget erstellen](#neues-custom-widget-erstellen)
 - [Fields](#fields)
+- [To-Do](#to-do)
 
 ## Vorschau
 
@@ -61,3 +62,6 @@ Farbe des Text in dem Widget.
 `Standart: <3`
 
 Alle Emotes oder Phrasen die im Text gewertet werden sollen. Die Emotes sind mit einem Komma (,) getrennt.
+
+## To-Do
+- [ ] Fields Option für Background Color
