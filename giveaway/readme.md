@@ -6,6 +6,7 @@ Version: 1.0 - 13.04.2023 17:52
   - [Neues Overlay erstellen](#neues-overlay-erstellen)
   - [Neues Custom Widget erstellen](#neues-custom-widget-erstellen)
 - [Fields](#fields)
+- [To-Do](#to-do)
 
 ## Vorschau
 
@@ -93,3 +94,5 @@ Font color ändert die Farbe der Texte im Widget.
 
 `Standart: 1`
 
+## To-Do
+- [ ] Gewinnspiel reroll
