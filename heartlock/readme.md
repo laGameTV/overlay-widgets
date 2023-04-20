@@ -39,11 +39,6 @@ data.json    -> DATA
 ***
 
 ## Fields
-> Background color
-
-`Standart: #0b0b0b80`
-
-Die Farbe des Hintergrunds.
 
 > Center Image (at least 96x96px recommended)
 
@@ -51,23 +46,29 @@ Die Farbe des Hintergrunds.
 
 Setzt das Bild welches bei einem Heartlock in der Mitte des Bildschirms erscheint.
 
-> Color of bar
-
-`Standart: #9147ff80`
-
-Farbe des Hintergrunds der die Anzahl an Herzen darstellt.
-
-> Font color
-
-`Standart: #ffffff`
-
-Farbe des Text in dem Widget.
-
 > Emotes (comma separated)
 
 `Standart: <3`
 
 Alle Emotes oder Phrasen die im Text gewertet werden sollen. Die Emotes sind mit einem Komma (,) getrennt.
+
+> Colors > Bar
+
+`Standart: #9147ff80`
+
+Farbe des Hintergrunds der die Anzahl an Herzen darstellt.
+
+> Colors > Background
+
+`Standart: #0b0b0b80`
+
+Die Farbe des Hintergrunds.
+
+> Colors > Font
+
+`Standart: #ffffff`
+
+Farbe des Text in dem Widget.
 
 ## To-Do
 - [x] Fields Option für Background Color

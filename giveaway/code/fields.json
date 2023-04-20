@@ -20,21 +20,25 @@
 	},
 	"accentColor": {
 		"type": "colorpicker",
-		"label": "Accent color",
+		"group": "Colors",
+		"label": "Accent",
 		"value": "#9147ff"
 	},
 	"fontColor": {
 		"type": "colorpicker",
-		"label": "Font color",
+		"group": "Colors",
+		"label": "Font",
 		"value": "#ffffff"
 	},
 	"dingSound": {
 		"type": "sound-input",
+		"group": "Sounds",
 		"label": "Wheel ding - Sound",
 		"value": "https://github.com/laGameTV/overlay-widgets/blob/main/giveaway/src/ding.mp3?raw=true"
 	},
 	"dingVolume": {
 		"type": "slider",
+		"group": "Sounds",
 		"label": "Wheel ding - Sound volume",
 		"value": 1,
 		"min": 0,
@@ -43,11 +47,13 @@
 	},
 	"celebrationSound": {
 		"type": "sound-input",
+		"group": "Sounds",
 		"label": "Celebration - Sound",
 		"value": "https://github.com/laGameTV/overlay-widgets/blob/main/giveaway/src/celebration.mp3?raw=true"
 	},
 	"celebrationVolume": {
 		"type": "slider",
+		"group": "Sounds",
 		"label": "Celebration - Sound volume",
 		"value": 1,
 		"min": 0,

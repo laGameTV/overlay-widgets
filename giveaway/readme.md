@@ -63,14 +63,16 @@ Mit dieser Einstellung kannst du die Sprache der Nachrichten die der Bot in den 
 
 Mit dieser Einstellung kannst du den Befehl oder die Phrase ändern, mit der man dem Gewinnspiel beitreten kann. Beispiel: !join oder #giveaway.
 
-> Accent color
+### Colors
+
+> Accent
 
 `Standart: #9147ff`
 
 Die Akzent Farbe bestimmt Farbe des Kasten in dem der "Join command" und die Anzahl an Teilnehmern mit Gewinnchance steht.
 ![chrome_2VmHgNBUVB](https://user-images.githubusercontent.com/31692271/231823210-be6da6b7-17be-4967-97f0-6f7d1e44ae48.png)
 
-> Font Color
+> Font
 
 `Standart: #ffffff`
 

@@ -3,24 +3,27 @@
 		"type": "image-input",
 		"label": "Center Image (at least 96x96px recommended)"
 	},
-	"color": {
-		"type": "colorpicker",
-		"label": "Color of bar",
-		"value": "#9147ff80"
-	},
-	"backgroundColor": {
-		"type": "colorpicker",
-		"label": "Background color",
-		"value": "#0b0b0b80"
-	},
-	"fontColor": {
-		"type": "colorpicker",
-		"label": "Font color",
-		"value": "#ffffff"
-	},
 	"emotes": {
 		"type": "string",
 		"label": "Emotes (comma separated)",
 		"value": "<3"
+	},
+	"color": {
+		"type": "colorpicker",
+		"group": "Colors",
+		"label": "Bar",
+		"value": "#9147ff80"
+	},
+	"backgroundColor": {
+		"type": "colorpicker",
+		"group": "Colors",
+		"label": "Background",
+		"value": "#0b0b0b80"
+	},
+	"fontColor": {
+		"type": "colorpicker",
+		"group": "Colors",
+		"label": "Font",
+		"value": "#ffffff"
 	}
 }
