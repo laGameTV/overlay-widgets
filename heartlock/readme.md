@@ -6,6 +6,7 @@ Version: 1.1 - 13.04.2023 20:25
   - [Neues Overlay erstellen](#neues-overlay-erstellen)
   - [Neues Custom Widget erstellen](#neues-custom-widget-erstellen)
 - [Fields](#fields)
+  - [Colors](#colors)
 - [To-Do](#to-do)
 
 ## Vorschau
