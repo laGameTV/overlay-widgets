@@ -52,19 +52,21 @@ Setzt das Bild welches bei einem Heartlock in der Mitte des Bildschirms erschein
 
 Alle Emotes oder Phrasen die im Text gewertet werden sollen. Die Emotes sind mit einem Komma (,) getrennt.
 
-> Colors > Bar
+### Colors
+
+> Bar
 
 `Standart: #9147ff80`
 
 Farbe des Hintergrunds der die Anzahl an Herzen darstellt.
 
-> Colors > Background
+> Background
 
 `Standart: #0b0b0b80`
 
 Die Farbe des Hintergrunds.
 
-> Colors > Font
+> Font
 
 `Standart: #ffffff`
 
