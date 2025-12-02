@@ -26,7 +26,7 @@
 	},
 	"resetButton": {
 		"type": "button",
-		"label": "Reset Highscore",
+		"label": "Reset (High)score",
 		"value": "reset"
 	}
 }
