@@ -1,6 +1,6 @@
 let fieldData, bannedUsers, highscore, initialHighscore, reveal;
 // Cache jQuery selectors for better performance
-let $msg, $counterElement, $highscoreVal, $highscoreLabel, $rules;
+let $msg, $counterElement, $highscoreVal, $highscoreLabel, $highscoreContainer, $rules;
 
 window.addEventListener("onWidgetLoad", async function (obj) {
 	console.clear();
@@ -11,6 +11,7 @@ window.addEventListener("onWidgetLoad", async function (obj) {
 	$counterElement = $(".counter");
 	$highscoreVal = $(".highscore #value");
 	$highscoreLabel = $(".highscore #label");
+	$highscoreContainer = $(".highscore");
 	$rules = $(".main-container .rules");
 
 	fieldData = obj.detail.fieldData;
@@ -25,8 +26,13 @@ window.addEventListener("onWidgetLoad", async function (obj) {
 
 	// Optimized rules positioning logic
 	$rules.hide().css({ left: "", right: "" }); // Reset positions
+	$highscoreContainer.hide().css({ top: "", bottom: "" }); // Reset positions
 	if (fieldData.rulesPosition !== "none") {
 		$rules.css(fieldData.rulesPosition, "0").show();
+	}
+
+	if (fieldData.highscorePosition !== "none") {
+		$highscoreContainer.css(fieldData.highscorePosition, "0").show();
 	}
 });
 
@@ -111,7 +117,7 @@ async function loadHighscore() {
 			log("SE_API: Highscore erfolgreich initialisiert.");
 		} catch (retryError) {
 			log("SE_API Error: Highscore konnte nicht initialisiert werden. Feature deaktiviert.", retryError);
-			$(".highscore").hide();
+			$highscoreContainer.hide();
 			highscore = 0;
 			initialHighscore = -1;
 		}

@@ -14,6 +14,16 @@
 			"none": "Hidden"
 		}
 	},
+	"highscorePosition": {
+		"type": "dropdown",
+		"label": "Highscore position",
+		"value": "top",
+		"options": {
+			"top": "Top",
+			"bottom": "Bottom",
+			"none": "Hidden"
+		}
+	},
 	"excludeUser": {
 		"type": "string",
 		"label": "Banned Users (comma separated)",
