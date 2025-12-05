@@ -50,41 +50,50 @@ window.addEventListener("onEventReceived", async function (obj) {
 		case "message":
 			// Destructuring for cleaner access
 			const { text, userId: usr, displayName: dpn } = obj.detail.event.data;
-			const msgText = text.trim();
+			const msgText = text.trim().replaceAll(" ͏", ""); // Remove 7TV message bypass chars
 
 			// Parse message to integer explicitly
 			const msgNumber = parseInt(msgText, 10);
 
-			// log({
-			// 	msg: msgText,
-			// 	usr,
-			// 	lastCounter,
-			// 	counter,
-			// });
+			// log("Received message:", `<${dpn}> ${msgText}`, { usr, msgNumber });
 
-			//$('.msg').text(msg)
-			if (bannedUsers.includes(dpn.toLowerCase())) return; // Ignore banned users
+			if (bannedUsers.includes(dpn.toLowerCase())) {
+				log("Ignored message from banned user:", dpn);
+				return;
+			}; // Ignore banned users
 
 			// Improved validation: Check if parsed number is valid AND matches the original string
 			// This prevents cases like "12abc" being parsed as 12
-			if (isNaN(msgNumber) || String(msgNumber) !== msgText) return;
+			if (isNaN(msgNumber) || String(msgNumber) !== msgText) {
+				log("Ignored non-numeric message:", `<${dpn}> ${msgText}`);
+				return;
+			};
 
 			// If number is smaller than 1, ignore
-			if (msgNumber < 1) return;
+			if (msgNumber < 1) {
+				log("Ignored number less than 1:", `<${dpn}> ${msgText}`);
+				return;
+			};
 
-			log("New message:", `<${dpn}> ${msgText}`)
+			log("New message:", `<${dpn}> ${msgText}`, { usr, lastCounter, counter });
 
 			if (usr === lastCounter) { // Reset if same person twice (use strict equality)
 				$msg.text(`Selbe Person!${reveal ? ` (${dpn})` : ""}`);
-				return resetCounter();
+				resetCounter();
+				log("Resetting counter: same user twice", { usr, lastCounter });
+				return;
 			}
-			lastCounter = usr;
 
-			if (msgNumber === counter + 1) addCounter(); // Add counter
-			else { // Reset if wrong number
+			if (msgNumber !== counter + 1) { // Reset if wrong number
 				$msg.text(`Falsche Zahl!${reveal ? ` (${dpn})` : ""}`);
-				return resetCounter();
+				resetCounter();
+				log("Resetting counter: wrong number", { usr, lastCounter, expected: counter + 1, received: msgNumber });
+				return;
 			}
+
+			// Success: Update lastCounter ONLY if count is valid
+			lastCounter = usr;
+			addCounter();
 			break;
 
 		case "event:test":
