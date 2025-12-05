@@ -1,4 +1,5 @@
 let fieldData, bannedUsers, highscore, initialHighscore, reveal, highscoreToday, initialHighscoreToday;
+let highscoreDate, highscoreTodayDate;
 // Cache jQuery selectors for better performance
 let $msg, $counterElement, $highscoreValAlltime, $highscoreValToday, $highscoreLabel, $highscoreContainer, $rules;
 
@@ -9,8 +10,9 @@ window.addEventListener("onWidgetLoad", async function (obj) {
 	// Initialize cached selectors once
 	$msg = $(".msg");
 	$counterElement = $(".counter");
-	$highscoreValAlltime = $(".highscore #value-alltime");
-	$highscoreValToday = $(".highscore-today #value-today");
+	// Use IDs directly for better robustness
+	$highscoreValAlltime = $("#value-alltime");
+	$highscoreValToday = $("#value-today");
 	$highscoreLabel = $(".highscore #label");
 	$highscoreContainer = $(".highscore");
 	$rules = $(".main-container .rules");
@@ -89,17 +91,20 @@ window.addEventListener("onEventReceived", async function (obj) {
 			const data = obj.detail.event;
 			if (data.field === "resetButton" && data.value === "reset") {
 				log("Highscore reset")
+				const now = new Date();
 				await SE_API.store.set("counting_highscore", {
-					allTime: { score: 0, date: new Date() },
-					today: { score: 0, date: new Date() }
+					allTime: { score: 0, date: now },
+					today: { score: 0, date: now }
 				});
 				highscore = 0;
 				initialHighscore = -1;
 				highscoreToday = 0;
 				initialHighscoreToday = -1;
+				highscoreDate = now;
+				highscoreTodayDate = now;
 				$highscoreLabel.text("Aktueller Highscore:");
 				$highscoreValAlltime.text(highscore);
-				if ($highscoreValToday) $highscoreValToday.text(0);
+				if ($highscoreValToday && $highscoreValToday.length) $highscoreValToday.text(0);
 				resetCounter(); // Also reset current counter
 			}
 			break;
@@ -113,11 +118,11 @@ async function loadHighscore() {
 		// Migration: Check if old format exists (number or {value: number})
 		if (obj && (typeof obj === 'number' || typeof obj.value === 'number')) {
 			const oldScore = typeof obj === 'number' ? obj : obj.value;
-			log("Migrating highscore to new format...", oldScore);
 			obj = {
 				allTime: { score: oldScore, date: new Date() },
 				today: { score: 0, date: new Date() }
 			};
+			log("Migrating highscore to new format...", oldScore, obj);
 			await SE_API.store.set("counting_highscore", obj);
 		}
 
@@ -130,6 +135,7 @@ async function loadHighscore() {
 		}
 
 		highscore = obj.allTime.score;
+		highscoreDate = new Date(obj.allTime.date);
 		initialHighscore = highscore > 0 ? highscore : -1;
 
 		// Today logic
@@ -140,19 +146,21 @@ async function loadHighscore() {
 			lastDate.getMonth() === now.getMonth() &&
 			lastDate.getFullYear() === now.getFullYear();
 
-		highscoreToday = isSameDay ? (todayObj.score || 0) : 0;
+		highscoreToday = isSameDay ? (Number(todayObj.score) || 0) : 0;
+		highscoreTodayDate = isSameDay ? lastDate : now;
 		initialHighscoreToday = highscoreToday > 0 ? highscoreToday : -1;
 
 		$highscoreValAlltime.text(highscore);
-		if ($highscoreValToday) $highscoreValToday.text(highscoreToday);
+		if ($highscoreValToday && $highscoreValToday.length) $highscoreValToday.text(highscoreToday);
 
 	} catch (e) {
 		log("SE_API: Highscore konnte nicht geladen werden. Versuche Initialisierung...", e);
 		try {
+			const now = new Date();
 			// Try to set default value to initialize key
 			const newObj = {
-				allTime: { score: 0, date: new Date() },
-				today: { score: 0, date: new Date() }
+				allTime: { score: 0, date: now },
+				today: { score: 0, date: now }
 			};
 			await SE_API.store.set("counting_highscore", newObj);
 			// Try to read again
@@ -160,8 +168,10 @@ async function loadHighscore() {
 			initialHighscore = -1;
 			highscoreToday = 0;
 			initialHighscoreToday = -1;
+			highscoreDate = now;
+			highscoreTodayDate = now;
 			$highscoreValAlltime.text(highscore);
-			if ($highscoreValToday) $highscoreValToday.text(0);
+			if ($highscoreValToday && $highscoreValToday.length) $highscoreValToday.text(0);
 			log("SE_API: Highscore erfolgreich initialisiert.");
 		} catch (retryError) {
 			log("SE_API Error: Highscore konnte nicht initialisiert werden. Feature deaktiviert.", retryError);
@@ -178,55 +188,69 @@ async function addCounter() {
 	counter++;
 	$counterElement.text(counter);
 
+	await updateHighscore(counter);
+}
+
+async function updateHighscore(currentVal) {
 	let saveNeeded = false;
+	let allTimeBroken = false;
+	let todayBroken = false;
 
-	// Check if we are strictly above the starting highscore of this run
-	if (counter > initialHighscore) {
-		highscore = counter;
+	// --- All Time Logic ---
+	if (currentVal > initialHighscore) {
+		highscore = currentVal;
+		allTimeBroken = true;
+		saveNeeded = true;
 
-		// Only show "New Highscore" and trigger confetti if the previous highscore was > 0
-		// (initialHighscore is -1 if it was 0)
+		// UI: Highscore broken
 		if (initialHighscore > 0) {
 			$msg.text("Neuer Highscore!");
-
-			// Show "Alter Highscore" label and the old value
 			$highscoreLabel.text("Alter Highscore:");
 			$highscoreValAlltime.text(initialHighscore);
 		} else {
+			// First run or initial was 0/-1
 			$msg.text("Aktueller Score:");
 			$highscoreLabel.text("Aktueller Highscore:");
 			$highscoreValAlltime.text(highscore);
 		}
-		saveNeeded = true;
 	} else {
+		// UI: Normal counting
 		$msg.text("Aktueller Score:");
-		// Ensure label is correct
 		$highscoreLabel.text("Aktueller Highscore:");
 		$highscoreValAlltime.text(highscore);
 	}
 
-	// Today Logic
-	if (counter > initialHighscoreToday) {
-		highscoreToday = counter;
-		if ($highscoreValToday) $highscoreValToday.text(highscoreToday);
+	// --- Today Logic ---
+	if (currentVal > initialHighscoreToday) {
+		highscoreToday = currentVal;
+		todayBroken = true;
 		saveNeeded = true;
-	} else {
-		if ($highscoreValToday) $highscoreValToday.text(highscoreToday);
 	}
 
+	// Always update Today UI
+	if ($highscoreValToday && $highscoreValToday.length) $highscoreValToday.text(highscoreToday);
+
+	// --- Storage Logic ---
 	if (saveNeeded) {
-		// Save to store in background
-		await SE_API.store.set("counting_highscore", {
-			allTime: { score: highscore, date: new Date() },
-			today: { score: highscoreToday, date: new Date() }
-		});
+		// Update local dates if broken
+		if (allTimeBroken) highscoreDate = new Date();
+		if (todayBroken) highscoreTodayDate = new Date();
+
+		try {
+			await SE_API.store.set("counting_highscore", {
+				allTime: { score: highscore, date: highscoreDate },
+				today: { score: highscoreToday, date: highscoreTodayDate }
+			});
+		} catch (e) {
+			log("Error saving highscore", e);
+		}
 	}
 
 	// Trigger confetti on highscore break OR every 100 steps
 	// Priority: Highscore break > Milestone (to avoid double trigger if highscore is e.g. 99 and we hit 100)
-	if (counter - 1 === initialHighscore && initialHighscore > 0) {
+	if (currentVal - 1 === initialHighscore && initialHighscore > 0) {
 		triggerConfetti();
-	} else if (counter % 100 === 0) {
+	} else if (currentVal % 100 === 0) {
 		triggerConfetti();
 	}
 }
@@ -290,7 +314,7 @@ function resetCounter() {
 	// Reset UI to show current highscore
 	$highscoreLabel.text("Aktueller Highscore:");
 	$highscoreValAlltime.text(highscore);
-	if ($highscoreValToday) $highscoreValToday.text(highscoreToday);
+	if ($highscoreValToday && $highscoreValToday.length) $highscoreValToday.text(highscoreToday);
 
 	$counterElement.text(counter);
 }
