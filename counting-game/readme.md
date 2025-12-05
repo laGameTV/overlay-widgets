@@ -7,6 +7,7 @@ Version: 1.4 - 05.12.2025
   - [Neues Overlay erstellen](#neues-overlay-erstellen)
   - [Neues Custom Widget erstellen](#neues-custom-widget-erstellen)
 - [Fields](#fields)
+- [Commands](#commands)
 - [To-Do](#to-do)
 
 ## Vorschau
@@ -76,6 +77,19 @@ Wenn aktiviert wird wenn eine Person die falsche oder eine doppelte Zahl sendet 
 > Reset Highscore
 
 Setzt wenn man es anklickt den Highscore auf 0 zurück.
+
+## Commands
+
+Die folgenden Befehle können nur von Moderatoren und dem Broadcaster genutzt werden:
+
+- `!counter reset`  
+  Setzt den Zähler und alle Highscores zurück.
+- `!counter set <zahl>`  
+  Setzt den aktuellen Zähler auf die angegebene Zahl. (Dies beeinflusst NICHT direkt den Highscore, sondern erst, wenn die darauf folgende Zahl gesendet wird)
+- `!counter alltime <zahl>`  
+  Setzt den All-Time Highscore manuell.
+- `!counter today <zahl>`  
+  Setzt den Tages-Highscore manuell.
 
 ## To-Do
 

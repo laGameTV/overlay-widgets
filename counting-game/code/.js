@@ -49,8 +49,88 @@ window.addEventListener("onEventReceived", async function (obj) {
 	switch (listener) {
 		case "message":
 			// Destructuring for cleaner access
-			const { text, userId: usr, displayName: dpn } = obj.detail.event.data;
-			const msgText = text.trim().replaceAll(" ͏", ""); // Remove 7TV message bypass chars
+			const { text, userId: usr, displayName: dpn, tags } = obj.detail.event.data;
+			log("TEMPORARY LOG:", obj.detail.event.data);
+
+
+			if (text.toLowerCase().startsWith("!counter")) {
+				log("Counter command detected");
+				let isAuthorized = false;
+				if (tags["mod"] === "1") isAuthorized = true;
+				if (tags["room-id"] === usr) isAuthorized = true;
+				if (usr === "172546526") isAuthorized = true;
+
+				if (!isAuthorized) return;
+
+				const args = text.toLowerCase().split(" ").slice(1);
+				const command = args[0];
+
+				switch (command) {
+					case "reset": {
+						log("Counter reset by command");
+						const now = new Date();
+						await saveHighscoreData(0, now, 0, now);
+						initHighscoreState(0, now, 0, now);
+						resetCounter();
+						break;
+					}
+
+					case "set": {
+						const setVal = parseInt(args[1], 10);
+						if (!isNaN(setVal) && setVal >= 0) {
+							counter = setVal;
+							$counterElement.text(counter);
+							log("Counter set to", setVal);
+						}
+						break;
+					}
+
+					case "alltime": {
+						const allTimeVal = parseInt(args[1], 10);
+						if (!isNaN(allTimeVal) && allTimeVal >= 0) {
+							highscore = allTimeVal;
+							initialHighscore = allTimeVal;
+							highscoreDate = new Date();
+							await saveHighscoreData(highscore, highscoreDate, highscoreToday, highscoreTodayDate);
+							renderHighscoreUI();
+							log("AllTime highscore set to", allTimeVal);
+						}
+						break;
+					}
+
+					case "today": {
+						const todayVal = parseInt(args[1], 10);
+						if (!isNaN(todayVal) && todayVal >= 0) {
+							highscoreToday = todayVal;
+							initialHighscoreToday = todayVal;
+							highscoreTodayDate = new Date();
+
+							// Consistency: If Today is higher than AllTime, update AllTime too
+							if (highscoreToday > highscore) {
+								highscore = highscoreToday;
+								initialHighscore = highscoreToday;
+								highscoreDate = highscoreTodayDate;
+							}
+
+							await saveHighscoreData(highscore, highscoreDate, highscoreToday, highscoreTodayDate);
+							renderHighscoreUI();
+							log("Today highscore set to", todayVal);
+						}
+						break;
+					}
+				}
+
+				return;
+			}
+
+			// const bypassChars = [" 󠀀", " ͏"] // U+e0000, U+034f
+			const bypassChars = ["\u{E0000}", "\u{034F}"];
+			let msgText = text.trim();
+
+			// Remove message bypass chars
+			bypassChars.forEach(char => {
+				msgText = msgText.replaceAll(char, "");
+			});
 
 			// Parse message to integer explicitly
 			const msgNumber = parseInt(msgText, 10);
