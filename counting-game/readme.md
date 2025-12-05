@@ -1,5 +1,6 @@
 # Counting Game - For StreamElements
-Version: 1.2 - 13.04.2023 18:58
+
+Version: 1.4 - 05.12.2025
 
 - [Vorschau](#vorschau)
 - [Impotieren des Widget](#impotieren-des-widget)
@@ -11,9 +12,9 @@ Version: 1.2 - 13.04.2023 18:58
 ## Vorschau
 
 ![Screenshot 2023-04-13 20-20-10](https://user-images.githubusercontent.com/31692271/231851970-2ddf8c65-93cc-4390-8f5a-af9f7456cb2a.png)
-*Aktuellen Highscore schlagen*
+_Aktuellen Highscore schlagen_
 
-***
+---
 
 ## Impotieren des Widget
 
@@ -29,6 +30,7 @@ Version: 1.2 - 13.04.2023 18:58
 5. Ändere die Größe auf `1920x1080px`.
 6. Öffne den Overlay Editor.
 7. Kopiere die einzelnen Inhalte aus `/code` in die jeweiligen Kategorien.
+
 ```
 .html        -> HTML
 .css         -> CSS
@@ -36,9 +38,11 @@ Version: 1.2 - 13.04.2023 18:58
 fields.json  -> FIELDS
 data.json    -> DATA
 ```
-***
+
+---
 
 ## Fields
+
 > Background color
 
 `Standart: #0b0b0b80`
@@ -49,7 +53,7 @@ Die Farbe des Hintergrunds.
 
 `Standart: Left`
 
-Es gibt folgende  Auswahloptionen: Left, Right, Hidden.
+Es gibt folgende Auswahloptionen: Left, Right, Hidden.
 
 Die Optionen "Left" und "Right" geben die Position an. Mit "Hidden" kannst du die Regeln komplett verstecken.
 
@@ -74,4 +78,5 @@ Wenn aktiviert wird wenn eine Person die falsche oder eine doppelte Zahl sendet 
 Setzt wenn man es anklickt den Highscore auf 0 zurück.
 
 ## To-Do
+
 - [x] Fields Option für Background Color
